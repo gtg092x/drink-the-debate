@@ -1,0 +1,97 @@
+//@import 'bootstrap';
+@import 'bootstrap';
+@import "font-awesome";
+
+// general
+h1{
+    font-size:30pt;
+}
+
+body,html{height:100%;font-family: 'Ubuntu', sans-serif;}
+.drink{font-family: 'Gloria Hallelujah', cursive; font-size:1.2em;margin-left:5px;margin-right:5px;}
+
+// nav
+#login-dropdown-list {
+    right: -1px;
+    left:auto;
+}
+
+.nav-item a{
+    color:#bd4147;
+}
+
+// footer
+footer{
+    bottom:15px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    margin-bottom: 0;
+}
+
+// my boards
+.my-boards-wrapper{
+    position: relative;
+
+}
+
+// forms
+form.form-inline .form-control{
+    margin-right:10px;
+}
+
+form.form-inline button{
+    position: relative;
+    top:10px;
+}
+
+.debate-card{
+    margin-top:10px;
+    .card-title{
+        font-size:18pt;
+    }
+}
+
+.debate-card .card span,a{
+    display:block;
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.my-board-card{
+    margin-top:15px;
+}
+
+// partials
+.delete-button{
+    color:#c12e2a;
+    font-size:30pt;
+    width:45px;
+    position: relative;
+    height:40px;
+    &:hover,&:active,&:focus{text-decoration: none; color:darken(#c12e2a,10%);}
+    span.fa{
+        position: absolute;
+        top:0;bottom:0;right:0;left:0;
+    }
+}
+
+.add-button{
+
+    height:auto;
+
+    font-size:30pt !important;
+    $buttoncolor: #61a4ff;
+    color:$buttoncolor;
+    &:hover,&:active,&:focus{
+        text-decoration: none;
+        color:darken($buttoncolor,10%);
+    }
+    .note{
+        font-size:18pt;
+        vertical-align: middle;
+    }
+}
