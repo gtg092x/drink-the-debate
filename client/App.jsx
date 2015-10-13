@@ -81,7 +81,7 @@ App = React.createClass({
           </article>
           <footer className="container">
             <div className="pull-left"><a href='http://www.mediadrake.com' target='_blank'> &copy; Matthew Drake</a></div>
-            <div className="pull-right"><a href='http://www.mediadrake.com' target='_blank'>Fork this Github <span className='fa fa-github'></span></a></div>
+            <div className="pull-right"><a href='https://github.com/gtg092x/drink-the-debate' target='_blank'>Fork this Github <span className='fa fa-github'></span></a></div>
           </footer>
         </div>
     );

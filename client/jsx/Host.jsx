@@ -51,6 +51,26 @@ Host = React.createClass({
             editThis = (<h2 className="pull-right"><ReactRouter.Link className="btn btn-success" to={'/design/'+this.data.board.slug}>Edit <span className="fa fa-pencil"></span></ReactRouter.Link></h2>);
         }
 
+        var cards = (<ul className="host-shooters  list-unstyled">
+            {this.data.board.phrases.map(function (item,i) {
+                return <li key={item.slug} className="btnsqr col-xs-12 col-lg-6">
+                    <div className="card">
+                        <div className="card-header">
+                            <button className="btn btn-primary" type="button" onClick={self.addShot.bind(this,item.slug)}>{item.message} - <span className="drink">{item.drink}</span></button>
+                            <DeleteButton onClick={self.removeShot.bind(this,item.slug)} />
+                        </div>
+                        <ul className="history list-unstyled card-block">
+                            {item.shots.map(function (shot,i) {
+                                return <li key={item.slug+i} className="card-text">{moment(shot.createdAt).fromNow()}</li>;
+                            })}
+                        </ul>
+                    </div>
+                </li>;
+            })}
+        </ul>);
+        if(!this.data.board.phrases.length){
+            cards = <div><h3>Oops! Looks like this board doesn't have any phrases yet.</h3><p> If you own this board, you should edit it.</p></div>;
+        }
         return (
             <div className="hosting">
                 {editThis}
@@ -58,23 +78,7 @@ Host = React.createClass({
                 <div className="card card-block">
                 <p className='card-text'>When a candidate says one of your phrases, press the button!</p>
                 </div>
-                <ul className="host-shooters  list-unstyled">
-                    {this.data.board.phrases.map(function (item,i) {
-                        return <li key={item.slug} className="btnsqr col-xs-4">
-                            <div className="card">
-                            <div className="card-header">
-                            <button className="btn btn-primary" type="button" onClick={self.addShot.bind(this,item.slug)}>{item.message} - <span className="drink">{item.drink}</span></button>
-                            <DeleteButton onClick={self.removeShot.bind(this,item.slug)} />
-                            </div>
-                            <ul className="history list-unstyled card-block">
-                                {item.shots.map(function (shot,i) {
-                                    return <li key={item.slug+i} className="card-text">{moment(shot.createdAt).fromNow()}</li>;
-                                })}
-                            </ul>
-                            </div>
-                        </li>;
-                    })}
-                </ul>
+                {cards}
             </div>
         );
     }
